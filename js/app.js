@@ -1,7 +1,2 @@
-console.log('Hello!')
-console.log(console);
-console.log(console.log);
-
-
-var console2 = 'Hello!'
-console.log(console);
+'use strict'
+x = 5 // it will work without 'use strict'
