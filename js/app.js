@@ -1,25 +1,21 @@
-var cat1 = {
-    name: 'Fluffy',
-    age: 3,
-    'string can be key': 'miau'
+var car =  {
+    brand: 'Opel',
+    model: 'Insignia',
 }
 
-console.log(cat1);
+var me  = {
+    firstName: 'Mateusz',
+    lastName: 'Choma',
+    car: car,
+}
 
-console.log(cat1.name);
-console.log(cat1.age);
-console.log(cat1['string can be key']);
+me.name = me.firstName + " "+ me.lastName
+console.log(me.name);
 
- var key = 'string can be key'
- console.log(cat1[key]);
- 
- console.log('------------------');
- 
 
-var cat2 = {}
+console.log(me);
 
-cat2.name = 'Puszek'
-cat2.name = 'Okruszek'
-cat2.age = 4
+console.log(me.car.brand);
 
-console.log(cat2);
+
+
