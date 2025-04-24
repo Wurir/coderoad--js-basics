@@ -1,21 +1,22 @@
+var firstName = 'Mateusz'
+var lastName = 'Choma'
+
 var car =  {
     brand: 'Opel',
     model: 'Insignia',
 }
 
 var me  = {
-    firstName: 'Mateusz',
-    lastName: 'Choma',
+    firstName: firstName,
+    lastName: lastName,
     car: car,
 }
 
 me.name = me.firstName + " "+ me.lastName
-console.log(me.name);
 
+firstName = 'Marek' // strings are passed by values
+
+car.model = 'Adam' // objects are passed by reference
 
 console.log(me);
-
-console.log(me.car.brand);
-
-
 
