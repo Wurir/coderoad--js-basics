@@ -1,33 +1,33 @@
 // PRIMITIVES:
 
 // NUMBER
-5
-
+var numberLiteral = 5
+var numberLiteral2 = 1.5
 // STRING
-'Hello'
-"I can't"
+var stringLiteral = 'Hello'
+var stringLiteral2 = "I can't"
 
 //BOOLEAN
-true
-false
+var booleanLiteral = true
+var booleanLiteral2 = false
 
 // NULL
-null
+var nullLiteral = null
 
 // UNDEFINED
-undefined
+var undefinedLiteral = undefined
 
 // OBJECTS:
 
 
 // OBJECT
-const obj = {
+var objectLiteral = {
     name: 'Fluffy',
     age: 3,
 }
 
 // ARRAY
-['Fluffy', 3]
+var arrayLiteral = ['Fluffy', 3]
 
 // FUNCTIONS
 
