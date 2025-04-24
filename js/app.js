@@ -1,2 +1,3 @@
-'use strict'
-x = 5 // it will work without 'use strict'
+const string = '4'
+const num = 4
+console.log(string + num); // 44
