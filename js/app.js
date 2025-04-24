@@ -1,16 +1,25 @@
-var x = 2
-var y = 4
+var cat1 = {
+    name: 'Fluffy',
+    age: 3,
+    'string can be key': 'miau'
+}
 
-var a = '2'
-var b = '4'
+console.log(cat1);
 
-console.log(x + y); // 6
+console.log(cat1.name);
+console.log(cat1.age);
+console.log(cat1['string can be key']);
 
-console.log(a + b); // 24
+ var key = 'string can be key'
+ console.log(cat1[key]);
+ 
+ console.log('------------------');
+ 
 
-console.log(a - b); // -2
+var cat2 = {}
 
-// podczas dodawania zachodzi konwersja liczb na string, 
-// natomiast przy innych operacjach arytmetycznych stringi sa zamieniane na liczby
+cat2.name = 'Puszek'
+cat2.name = 'Okruszek'
+cat2.age = 4
 
-
+console.log(cat2);
