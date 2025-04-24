@@ -1,19 +1,20 @@
-var names = ['Ala', 'Ola', 'Ela']
-
-var objectNames = {
-    0: 'Ala',
-    1: 'Ola',
-    3: 'Ela'
+var person1 = {
+    firstName: 'Mateusz',
+    lastName: 'Choma',
 }
 
-console.log(names);
-console.log(names.length);
-console.log(names[0]);
-console.log(names[1]);
-console.log(names[2]);
+var person2 = {
+    firstName: 'Alicja',
+    lastName: 'Kotowicz',
+}
 
-names[3] = 'Iza'
-console.log(names);
+var people = [person1, person2, person2]
 
-console.log(objectNames);
+person2.firstName = "Ala"
 
+people[2].name = people[2].firstName + " " + people[2].lastName
+
+console.log(person1);
+console.log(person2);
+
+console.log(people);
