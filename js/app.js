@@ -1,28 +1,17 @@
 'use strict'
 
+console.log(a) // undefined
+
+var a = 5
+
+console.log(add(1,3)) // 4
+
 function add(a, b){
     return a + b
 }
 
-function makeAdd(a){
-    return function(b){
-        return a + b
-    }
+console.log(addExpression(1, 3)) // Uncaught TypeError: addExpression is not a function
+
+var addExpression = function(a,b){
+    return a+ b
 }
-
-var add10 = makeAdd(10)
-
-console.log(add10(1));
-console.log(add10(12));
-console.log(add10(-3));
-
-
-function makeSubtract(a){
-    return function(b){
-        return a - b
-    }
-}
-
-var subtract10 = makeSubtract(10)
-
-console.log(subtract10(5));
