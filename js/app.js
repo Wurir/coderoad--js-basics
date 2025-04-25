@@ -1,22 +1,28 @@
 'use strict'
 
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-// for(let i=0; i<numbers.length; i++){
-//     console.log(numbers[i]);
-// }
-
-
-var displayNumbers = function innerName(i = 0){
-    if(i >= numbers.length){
-        return 
-    }
-    console.log(numbers[i])
-    i++
-    innerName(i)
+function add(a, b){
+    return a + b
 }
 
-var showNumbers = displayNumbers
-displayNumbers = null
+function makeAdd(a){
+    return function(b){
+        return a + b
+    }
+}
 
-showNumbers(0)
+var add10 = makeAdd(10)
+
+console.log(add10(1));
+console.log(add10(12));
+console.log(add10(-3));
+
+
+function makeSubtract(a){
+    return function(b){
+        return a - b
+    }
+}
+
+var subtract10 = makeSubtract(10)
+
+console.log(subtract10(5));
