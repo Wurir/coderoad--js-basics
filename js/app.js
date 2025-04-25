@@ -1,42 +1,20 @@
 'use strict'
 
-var x = 1
-var y = 2
+console.log('before alert');
 
-if(x === y){
-    console.log('prawda');
-} else {
-    console.log('fałsz');
-}
+var alertResult = alert('Hello')
 
-if(x !== y) {
-    console.log('Prawda, X nie jest rowne Y!');
-} else {
-    console.log('Fałsz, X jest rowne Y!'); 
-}
+console.log('after alert', alertResult);
 
-var string = 'Hello'
-var emptyString = ''
 
-if(string){
-    console.log('Prawda');
-} else {
-    console.log('Fałsz')
-}
+console.log('before confirm');
 
-if(emptyString){
-    console.log('Prawda');
-} else {
-    console.log('Fałsz')
-}
+var confirmResult = confirm('confirm')
 
-function add(a, b){
-    if(a === undefined){
-        a = 0
-    }
-    if(b === undefined){
-        b = 0
-    }
+console.log('after confirm', confirmResult);
 
-    return Number(a) + Number(b)
-}
+console.log('before prompt');
+
+var promptResult = prompt('prompt')
+
+console.log('after prompt', promptResult);
