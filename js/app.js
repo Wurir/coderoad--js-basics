@@ -1,20 +1,16 @@
 'use strict'
 
-console.log('before alert');
+var num1 = Number(prompt('Please type number!'))
+var num2 = Number(prompt('Please type second number!'))
 
-var alertResult = alert('Hello')
+function add(a, b){
+    return a + b
+}
 
-console.log('after alert', alertResult);
+var sum = add(num1, num2)
 
-
-console.log('before confirm');
-
-var confirmResult = confirm('confirm')
-
-console.log('after confirm', confirmResult);
-
-console.log('before prompt');
-
-var promptResult = prompt('prompt')
-
-console.log('after prompt', promptResult);
+if(sum || sum === 0){
+    alert('Result: ' + sum);
+} else {
+        alert('Sorry, you provided not a number!')
+}
