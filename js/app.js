@@ -1,15 +1,30 @@
 'use strict'
 
-var names = ['Ala', 'Ola', 'Ela', 'Iza']
-var numbers = [1, 2, 3, 4, 5]
-
-for(let i = 0; i < names.length; i++){
-    console.log('For loop iteration: ' + names[i]);
-}
-
+;(function(numbersAmount){
 
 var sum = 0
-for(let j = 0; j < numbers.length; j++){
-    sum += numbers[j]
+
+for(let i=0; i < numbersAmount; i++){
+    var numberFromUser = getNumberFromUser()
+    sum = add(sum, numberFromUser)
 }
-console.log( sum );
+
+function getNumberFromUser(){
+    return Number(prompt('Please type number!'))
+}
+
+function add(a, b){
+    return a + b
+}
+
+function showResult(sum){
+    if(sum || sum === 0){
+        alert('Result: ' + sum);
+    } else {
+            alert('Sorry, you provided not a number!')
+    }
+}
+
+showResult(sum)
+})(2)
+
