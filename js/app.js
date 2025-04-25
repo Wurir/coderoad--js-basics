@@ -1,35 +1,73 @@
 'use strict'
 
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var num1 = 1
+var num2 = 2
 
-// for(let i = 0; i < numbers.length; i++){
-//     console.log('#1. Start of iteration: ' + i);
+var operator = prompt('Please type one of +, -, /, *')
 
-//     var number = numbers[i]
-//     if(number < 6){
-//         console.log(number);
-//     }
-    
-// }
+// var operator = '*'
 
-// for(var j = 0; j < numbers.length; j++){
-//     console.log('#2. Start of iteration: ' + j);
-//     var number = numbers[j]
-
-//     if(number < 6){
-//         console.log(number);
-//     } else {
-//         break
-//     }
-// }
-
-for(var k = 0; k < numbers.length; k++){
-    console.log('#3. Start of iteration: ' + k);
-    var number = numbers[k]
-
-    if(number % 2 === 0){
-        continue
-    } 
-    
-    console.log(number);
+function add(a, b){
+    return a + b
 }
+function subtract(a, b){
+    return a - b
+}
+function multiply(a, b){
+    return a * b
+}
+function divide(a, b){
+    return a / b
+}
+
+function displayError(){
+    alert('Wrong operator')
+}
+
+function displayResult(result){
+    alert('Result is: '+ result)
+}
+
+function displayInfo(error, result){
+    if(error){
+        displayError()
+    }else{
+        displayResult(result)
+    }
+}
+
+var result = 0
+var error = false
+
+// if(operator === '+'){+
+//     result = add(num1, num2)
+// }else if(operator === '-'){
+//     result = subtract(num1, num2)
+// }else if(operator === '*'){
+//     result = multiply(num1, num2)
+// }else if(operator === '/'){
+//     result = divide(num1, num2)
+// } else {
+//     error = true
+// }
+
+
+switch(operator){
+    case '+':
+        result = add(num1, num2)
+        break;
+    case '-':
+        result = subtract(num1, num2)
+        break;
+    case '*':
+        result = multiply(num1, num2)
+        break;
+    case '/':
+        result = divide(num1, num2)
+        break;
+    default:
+        error = true
+        break
+}
+
+displayInfo(error, result)
