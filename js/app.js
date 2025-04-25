@@ -1,11 +1,42 @@
+'use strict'
 
-var x = 5
-var y = 10
+var x = 1
+var y = 2
 
-function add(a, b) {
-    return a + b
+if(x === y){
+    console.log('prawda');
+} else {
+    console.log('fałsz');
 }
-const result = add(x, y)
 
-console.log(result);
+if(x !== y) {
+    console.log('Prawda, X nie jest rowne Y!');
+} else {
+    console.log('Fałsz, X jest rowne Y!'); 
+}
 
+var string = 'Hello'
+var emptyString = ''
+
+if(string){
+    console.log('Prawda');
+} else {
+    console.log('Fałsz')
+}
+
+if(emptyString){
+    console.log('Prawda');
+} else {
+    console.log('Fałsz')
+}
+
+function add(a, b){
+    if(a === undefined){
+        a = 0
+    }
+    if(b === undefined){
+        b = 0
+    }
+
+    return Number(a) + Number(b)
+}
