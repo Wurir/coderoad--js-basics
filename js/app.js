@@ -1,5 +1,5 @@
 'use strict'
-const makeCounter = (function(){
+const makeCounter = function(){
     let number = 0;
     
     const inc = function(){
@@ -14,7 +14,7 @@ const makeCounter = (function(){
         inc: inc,
         status: status,
     }
-})()
+}
 
 const counter1 = makeCounter()
 const counter2 = makeCounter()
