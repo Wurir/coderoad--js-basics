@@ -1,13 +1,20 @@
 'use strict'
+const makeCounter = (function(){
+    let number = 0;
+    
+    const inc = function(){
+        number++
+    }
+    
+    const status = function(){
+        console.log('Current number is: ' + number);
+    }
 
-const obj = {}
-console.log(obj); // {}
+    return {
+        inc: inc,
+        status: status,
+    }
+})()
 
-obj.firstName = 'Bartek'
-console.log(obj); // {firstName: 'Bartek'}
-
-const obj2 = obj
-obj2.firstName = 'Mateusz'
-console.log(obj); // {firstName: 'Mateusz'}
-
-console.log(obj2 === obj); // true
+const counter1 = makeCounter()
+const counter2 = makeCounter()
