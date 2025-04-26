@@ -1,20 +1,20 @@
 'use strict'
-const makeCounter = function(){
-    let number = 0;
-    
-    const inc = function(){
-        number++
-    }
-    
-    const status = function(){
-        console.log('Current number is: ' + number);
-    }
 
-    return {
+const inc = function(){
+    this.number++
+}
+    
+const status = function(){
+    console.log('Current number is: ' + this.number);
+}
+
+const counter1 = {
+        number: 0,
         inc: inc,
         status: status,
     }
-}
-
-const counter1 = makeCounter()
-const counter2 = makeCounter()
+const counter2 = {
+        number: 0,
+        inc: inc,
+        status: status,
+    }
