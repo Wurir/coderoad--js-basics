@@ -18,12 +18,21 @@ Counter.prototype.render = function(){
     const button = document.createElement('button')
 
     h1.innerText = this.number
+    button.innerText = '+'
+
+    const self = this
+
+    button.addEventListener('click', function(){
+       self.inc()
+    })
 
     this.container.appendChild(h1)
+    this.container.appendChild(button)
  }
 
 Counter.prototype.inc = function(){
     this.number++
+    this.render()
 }
 Counter.prototype.status = function(){
     console.log('Current number is: ' + this.number);
