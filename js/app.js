@@ -20,11 +20,9 @@ Counter.prototype.render = function(){
     h1.innerText = this.number
     button.innerText = '+'
 
-    const self = this
+    // const self = this
 
-    button.addEventListener('click', function(){
-       self.inc()
-    })
+    button.addEventListener('click', ()=> this.inc())
 
     this.container.appendChild(h1)
     this.container.appendChild(button)
