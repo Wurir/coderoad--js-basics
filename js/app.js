@@ -1,5 +1,3 @@
-
-
 const Counter = function(selector){
     const container = document.querySelector(selector)
     if(!container) throw new Error('Container element not found')
@@ -32,5 +30,4 @@ Counter.prototype.status = function(){
     return this.number
 }
 
-const counter1 = new Counter('.counter-1')
-counter1.init()
+
