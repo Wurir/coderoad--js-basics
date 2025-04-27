@@ -1,5 +1,5 @@
- const sayHello = function(){
-    const text = 'Hello ' + this.firstName + ' ' + this.lastName
+ const sayHello = function(hello = 'Hello ', endMark = '!'){
+    const text = hello + this.firstName + ' ' + this.lastName + endMark
     console.log(text);
  }
 
@@ -11,7 +11,7 @@ const me = {
     sayHello: sayHello,
 }
 
-me.sayHello()
+me.sayHello('Cześć ', '!!!')
 
 const person1 = {
     firstName: 'Ala',
@@ -19,8 +19,10 @@ const person1 = {
 }
 
 // wywołuje funkcje z nowym kontekstem
-sayHello.call(person1)
-sayHello.apply(person1)
+sayHello.call(person1, 'Cześć ', '!!!')
+sayHello.apply(person1, ['Cześć ', '!!!']) // for apply as a second argument you have to give array with arguments inside
+const args = ['Cześć ', '!!!']
+sayHello.apply(person1, args)
 
 // bounded function cant change context from now
 // bind nie wywołuje funkcji ale zwraca funkcje przypisana do nowej zmiennej z kontekstem podanym jako argument
@@ -32,7 +34,10 @@ const person2 = {
     lastName: 'Jakaś',
 }
 sayHelloBound()
+sayHelloBound('Cześć ', '!!!')
 
 // context didn't change
 sayHelloBound.call(person2)
 sayHelloBound.apply(person2)
+sayHelloBound.call(person2, 'Cześć ', '!!!')
+sayHelloBound.apply(person2, ['Cześć ', '!!!'])
