@@ -1,43 +1,37 @@
- const sayHello = function(hello = 'Hello ', endMark = '!'){
-    const text = hello + this.firstName + ' ' + this.lastName + endMark
-    console.log(text);
- }
+const add = function(a, b){
+    return a + b
+}
+console.log(add(2, 4))
 
-sayHello()
+const addArrow1 = (a, b) => a + b
 
-const me = {
-    firstName: 'Mateusz',
-    lastName: 'Choma',
-    sayHello: sayHello,
+const addArrow2 = (a, b) => {
+    return a + b
 }
 
-me.sayHello('Cześć ', '!!!')
+const addArrow3 = (a, b) => (a + b)
 
-const person1 = {
-    firstName: 'Ala',
-    lastName: 'Kotowicz',
+console.log(addArrow1(2, 4))
+console.log(addArrow2(6, 3))
+console.log(addArrow3(6, 3))
+
+function validateAndAdd(a, b){
+    if(typeof a !== 'number' || typeof b !== 'number') {
+        throw new Error('Both arguments must be numbers')
+    }
+    console.log(a + b); 
 }
 
-// wywołuje funkcje z nowym kontekstem
-sayHello.call(person1, 'Cześć ', '!!!')
-sayHello.apply(person1, ['Cześć ', '!!!']) // for apply as a second argument you have to give array with arguments inside
-const args = ['Cześć ', '!!!']
-sayHello.apply(person1, args)
+validateAndAdd(2, 4)
 
-// bounded function cant change context from now
-// bind nie wywołuje funkcji ale zwraca funkcje przypisana do nowej zmiennej z kontekstem podanym jako argument
-const sayHelloBound = sayHello.bind(person1)
-
-
-const person2 = {
-    firstName: 'Ola',
-    lastName: 'Jakaś',
+const validateAndAddArrow = (a, b) => {
+    if(typeof a !== 'number' || typeof b !== 'number') {
+        throw new Error('Both arguments must be numbers')
+    }
+    console.log(a + b); 
 }
-sayHelloBound()
-sayHelloBound('Cześć ', '!!!')
+validateAndAddArrow(6, 6)
 
-// context didn't change
-sayHelloBound.call(person2)
-sayHelloBound.apply(person2)
-sayHelloBound.call(person2, 'Cześć ', '!!!')
-sayHelloBound.apply(person2, ['Cześć ', '!!!'])
+const oneArgument = a => console.log(a)
+
+oneArgument('Hello')
