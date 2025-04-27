@@ -20,4 +20,5 @@ const person = {
 }
 
 sayHello.call(person)
+sayHello.apply(person)
 
