@@ -1,11 +1,28 @@
 
-// constructor function
-const Counter = function(name){
-    // this points to newly created empty object
-    // when is used with new keyword
-    this.name = name
+
+const Counter = function(selector){
+    const container = document.querySelector(selector)
+    if(!container) throw new Error('Container element not found')
+
+    this.container = container    
+    this.selector = selector
     this.number = 0
 }
+
+Counter.prototype.init = function(){
+    this.render()
+}
+
+Counter.prototype.render = function(){
+    this.container.innerText = ''
+
+    const h1 = document.createElement('h1')
+    const button = document.createElement('button')
+
+    h1.innerText = this.number
+
+    this.container.appendChild(h1)
+ }
 
 Counter.prototype.inc = function(){
     this.number++
@@ -15,12 +32,5 @@ Counter.prototype.status = function(){
     return this.number
 }
 
-const counter1 = new Counter('counter1')
-const counter2 = new Counter('counter2')
-
-counter1.inc()
-counter2.inc()
-counter2.inc()
-
-if(counter1.status() !== 1 ) throw new Error('Counter1 do not work')
-if(counter2.status() !== 2 ) throw new Error('Counter2 do not work')
+const counter1 = new Counter('.counter-1')
+counter1.init()
