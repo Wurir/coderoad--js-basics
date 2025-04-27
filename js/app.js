@@ -1,20 +1,18 @@
 
-const inc = function(){
-    this.number++
-}
-const status = function(){
-    console.log('Current number is: ' + this.number);
-    return this.number
-}
-
 // constructor function
 const Counter = function(name){
     // this points to newly created empty object
     // when is used with new keyword
     this.name = name
     this.number = 0
-    this.inc = inc
-    this.status = status
+}
+
+Counter.prototype.inc = function(){
+    this.number++
+}
+Counter.prototype.status = function(){
+    console.log('Current number is: ' + this.number);
+    return this.number
 }
 
 const counter1 = new Counter('counter1')
