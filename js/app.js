@@ -1,12 +1,4 @@
-const obj0 = new Object()
-const obj1 = {}
-const obj2 = { name: 'Mateusz' }
-const obj3 = { name: 'Mateusz', lastName: 'Choma' }
-const obj4 = { valueOf: () => console.log('I\'m valueOf function!') }
-const obj5 = { toString: () => 'toString value' }
-const obj6 = {
-    name: 'Mateusz',
-    lastName: 'Choma',
+const base = {
     toString: function () {
         let string = ''
         for (const property in this) {
@@ -18,16 +10,25 @@ const obj6 = {
     }
 }
 
-console.log(Object.prototype === obj0.__proto__) // true, alo for  obj1, obj2, obj3
+const obj0 = { name: 'Mateusz' }
+const obj1 = Object.create(base)
+obj1.name = 'Mateusz'
 
-console.log(Object.prototype)
-
-console.log(Object.prototype.constructor === Object)
-console.log(obj0.__proto__.constructor === Object)
+console.log(obj0.__proto__ === Object.prototype)
+console.log(obj1.__proto__ === Object.prototype)
+console.log(obj1.__proto__ === base)
+console.log(obj1.__proto__.__proto__ === Object.prototype)
 
 console.log('Hello ' + obj0)
-console.log('Hello ' + obj5)
-console.log('Hello ' + obj6)
+console.log('Hello ' + obj1)
 
-console.log(obj6.hasOwnProperty('toString'))
-console.log(obj3.hasOwnProperty('toString'))
+const obj2 = Object.create(obj1)
+
+const normalObj = Object.create({})
+const nullObj = Object.create(null)
+
+normalObj.name = 'Mateusz'
+nullObj.name = 'Mateusz'
+
+console.log('Hello ' + normalObj)
+console.log('Hello ' + nullObj)
