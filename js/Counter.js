@@ -29,7 +29,7 @@ Counter.prototype.render = function () {
 
     this.container.appendChild(h1)
     this.container.appendChild(button)
- 
+
 }
 
 Counter.prototype.inc = function () {
@@ -39,5 +39,13 @@ Counter.prototype.inc = function () {
 
 Counter.prototype.status = function () {
     console.log('Current number is: ' + this.number)
+    return this.number
+}
+
+Counter.prototype.toString = function () {
+    return 'Current number is: ' + this.number
+}
+
+Counter.prototype.valueOf = function () {
     return this.number
 }
