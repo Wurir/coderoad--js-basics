@@ -1,55 +1,50 @@
-const showAllArguments = function(){
-    console.log(arguments)
+const button1 = document.createElement('button')
+button1.innerText = 'REGULAR FUNC'
+
+const button1ClickHandler = function () {
+    console.dir(this)
 }
 
-showAllArguments(1, 'Mateusz', {})
+button1.addEventListener(
+    'click',
+    button1ClickHandler
+)
 
-const showAllArgumentsArrow = () => console.log(arguments)
+document.body.appendChild(button1)
 
-// showAllArgumentsArrow(1, 'Mateusz', {})   = arguments is not defined
+const button2 = document.createElement('button')
+button2.innerText = 'REGULAR FUNC BOUND'
 
-const Greeter = function(name){
-    this.name =  name
+const button2ClickHandler = function () {
+    console.dir(this)
 }
+const button2ClickHandlerBound = button2ClickHandler.bind(this)
 
-Greeter.prototype.sayHello = function(){
-    console.log('Hello ' + this.name);
-}
+button2.addEventListener(
+    'click',
+    button2ClickHandlerBound
+)
 
-const greeter1 = new Greeter('Bartek')
+document.body.appendChild(button2)
 
+const button3 = document.createElement('button')
+button3.innerText = 'REGULAR FUNC BOUND INLINE'
 
-const GreeterArrow = (name) => {
-    this.name = name
-}
+button3.addEventListener(
+    'click',
+    (function () {
+        console.dir(this)
+    }).bind(this)
+)
 
-// GreeterArrow.prototype.sayHello = function(){     Cannot set properties of undefined (setting 'sayHello')
-//     console.log('Hello ' + this.name);
-// }
+document.body.appendChild(button3)
 
-// THIS COMES FROM LEXICAL SCOPE IN ARROW FUNCTION
+const button4 = document.createElement('button')
+button4.innerText = 'ARROW FUNC'
 
+button4.addEventListener(
+    'click',
+    () => console.dir(this)
+)
 
-
-// regular fn
-const sayHello = function(){
-    console.log('Hello ' + this.name);
-}
-sayHello.call({name: "Bartek1"})
-sayHello.apply({name: "Bartek2"})
-const sayHelloBound = sayHello.bind({name: "Bartek3"})
-sayHelloBound()
-
-
-
-
-// arrow fn
-const sayHelloArrow = () => {
-    console.log(this)
-    console.log('Hello ' + this.name);
-}
-
-sayHelloArrow.call({name: "Bartek1"})
-sayHelloArrow.apply({name: "Bartek2"})
-const sayHelloArrowBound = sayHelloArrow.bind({name: "Bartek3"})
-sayHelloArrowBound()
+document.body.appendChild(button4)
