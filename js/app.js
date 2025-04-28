@@ -1,37 +1,55 @@
-const add = function(a, b){
-    return a + b
-}
-console.log(add(2, 4))
-
-const addArrow1 = (a, b) => a + b
-
-const addArrow2 = (a, b) => {
-    return a + b
+const showAllArguments = function(){
+    console.log(arguments)
 }
 
-const addArrow3 = (a, b) => (a + b)
+showAllArguments(1, 'Mateusz', {})
 
-console.log(addArrow1(2, 4))
-console.log(addArrow2(6, 3))
-console.log(addArrow3(6, 3))
+const showAllArgumentsArrow = () => console.log(arguments)
 
-function validateAndAdd(a, b){
-    if(typeof a !== 'number' || typeof b !== 'number') {
-        throw new Error('Both arguments must be numbers')
-    }
-    console.log(a + b); 
+// showAllArgumentsArrow(1, 'Mateusz', {})   = arguments is not defined
+
+const Greeter = function(name){
+    this.name =  name
 }
 
-validateAndAdd(2, 4)
-
-const validateAndAddArrow = (a, b) => {
-    if(typeof a !== 'number' || typeof b !== 'number') {
-        throw new Error('Both arguments must be numbers')
-    }
-    console.log(a + b); 
+Greeter.prototype.sayHello = function(){
+    console.log('Hello ' + this.name);
 }
-validateAndAddArrow(6, 6)
 
-const oneArgument = a => console.log(a)
+const greeter1 = new Greeter('Bartek')
 
-oneArgument('Hello')
+
+const GreeterArrow = (name) => {
+    this.name = name
+}
+
+// GreeterArrow.prototype.sayHello = function(){     Cannot set properties of undefined (setting 'sayHello')
+//     console.log('Hello ' + this.name);
+// }
+
+// THIS COMES FROM LEXICAL SCOPE IN ARROW FUNCTION
+
+
+
+// regular fn
+const sayHello = function(){
+    console.log('Hello ' + this.name);
+}
+sayHello.call({name: "Bartek1"})
+sayHello.apply({name: "Bartek2"})
+const sayHelloBound = sayHello.bind({name: "Bartek3"})
+sayHelloBound()
+
+
+
+
+// arrow fn
+const sayHelloArrow = () => {
+    console.log(this)
+    console.log('Hello ' + this.name);
+}
+
+sayHelloArrow.call({name: "Bartek1"})
+sayHelloArrow.apply({name: "Bartek2"})
+const sayHelloArrowBound = sayHelloArrow.bind({name: "Bartek3"})
+sayHelloArrowBound()
