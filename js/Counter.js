@@ -17,18 +17,12 @@ Counter.prototype.render = function () {
     this.container.innerText = ''
 
     const h1 = document.createElement('h1')
-    const button = document.createElement('button')
+    const button = new Button('+', () => this.inc())
 
     h1.innerText = this.number
-    button.innerText = '+'
-
-    button.addEventListener(
-        'click',
-        () => this.inc()
-    )
 
     this.container.appendChild(h1)
-    this.container.appendChild(button)
+    this.container.appendChild(button.render())
 
 }
 
