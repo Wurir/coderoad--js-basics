@@ -1,30 +1,33 @@
-const task1 = {
-    text: 'Wynieś śmieci',
-    isCompleted: false,
+const obj0 = new Object()
+const obj1 = {}
+const obj2 = { name: 'Mateusz' }
+const obj3 = { name: 'Mateusz', lastName: 'Choma' }
+const obj4 = { valueOf: () => console.log('I\'m valueOf function!') }
+const obj5 = { toString: () => 'toString value' }
+const obj6 = {
+    name: 'Mateusz',
+    lastName: 'Choma',
+    toString: function () {
+        let string = ''
+        for (const property in this) {
+            const value = this[property]
+            if (typeof value === 'function') continue
+            string = string + value + ' '
+        }
+        return string.slice(0, -1)
+    }
 }
 
-const task1WithDate = {
-    text: task1.text,
-    isCompleted: task1.isCompleted,
-    date: Date.now()
-}
+console.log(Object.prototype === obj0.__proto__) // true, alo for  obj1, obj2, obj3
 
-console.log(task1WithDate)
-console.log(task1WithDate === task1) // false
+console.log(Object.prototype)
 
-const task1WithDateAssign = Object.assign(
-    {}, // here we create new object !
-    task1,
-    { date: Date.now() },
-)
+console.log(Object.prototype.constructor === Object)
+console.log(obj0.__proto__.constructor === Object)
 
-console.log(task1WithDateAssign)
-console.log(task1WithDateAssign === task1) // false
+console.log('Hello ' + obj0)
+console.log('Hello ' + obj5)
+console.log('Hello ' + obj6)
 
-const task1WithDateSpread = { // here we create new object !
-    ...task1,
-    date: Date.now()
-}
-
-console.log(task1WithDateSpread)
-console.log(task1WithDateSpread === task1) // false
+console.log(obj6.hasOwnProperty('toString'))
+console.log(obj3.hasOwnProperty('toString'))
