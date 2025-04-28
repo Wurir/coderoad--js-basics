@@ -1,36 +1,30 @@
-const myOwnForEach = function (array, callback, thisArg) {
-
-    for (let i = 0; i < array.length; i++) {
-        const element = names[i]
-        const index = i
-        const array = names
-
-        callback.call(thisArg, element, index, array)
-    }
-
+const task1 = {
+    text: 'Wynieś śmieci',
+    isCompleted: false,
 }
 
-const names = ['Ala', 'Ola', 'Ela']
-
-window.myName = 'Mateusz from Window'
-
-const greeter = function (name, index, array) {
-    console.log('Hello ' + name + ', I\'m ' + this.myName + '!')
+const task1WithDate = {
+    text: task1.text,
+    isCompleted: task1.isCompleted,
+    date: Date.now()
 }
 
-names.forEach(greeter)
-myOwnForEach(names, greeter)
+console.log(task1WithDate)
+console.log(task1WithDate === task1) // false
 
-names.forEach(greeter, { myName: 'Mateusz form "thisArg"' })
-myOwnForEach(names, greeter, { myName: 'Mateusz form "thisArg"' })
+const task1WithDateAssign = Object.assign(
+    {}, // here we create new object !
+    task1,
+    { date: Date.now() },
+)
 
-const greeterArrow = (name, index, array) => {
-    console.log('Hello ' + name + ', I\'m ' + this.myName + '!')
+console.log(task1WithDateAssign)
+console.log(task1WithDateAssign === task1) // false
+
+const task1WithDateSpread = { // here we create new object !
+    ...task1,
+    date: Date.now()
 }
 
-names.forEach(greeterArrow)
-myOwnForEach(names, greeterArrow)
-
-names.forEach(greeterArrow, { myName: 'Mateusz form "thisArg"' })
-myOwnForEach(names, greeterArrow, { myName: 'Mateusz form "thisArg"' })
-
+console.log(task1WithDateSpread)
+console.log(task1WithDateSpread === task1) // false
