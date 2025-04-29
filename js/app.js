@@ -1,34 +1,49 @@
-const base = {
-    toString: function () {
-        let string = ''
-        for (const property in this) {
-            const value = this[property]
-            if (typeof value === 'function') continue
-            string = string + value + ' '
-        }
-        return string.slice(0, -1)
-    }
+function Counter (initialNumber = 0) {
+    this.number = initialNumber
 }
 
-const obj0 = { name: 'Mateusz' }
-const obj1 = Object.create(base)
-obj1.name = 'Mateusz'
+Counter.prototype.inc = function () {
+    this.number = this.number + 1
+}
+Counter.prototype.dec = function () {
+    this.number = this.number - 1
+}       
 
-console.log(obj0.__proto__ === Object.prototype)
-console.log(obj1.__proto__ === Object.prototype)
-console.log(obj1.__proto__ === base)
-console.log(obj1.__proto__.__proto__ === Object.prototype)
+const counter1 = new Counter(5)
 
-console.log('Hello ' + obj0)
-console.log('Hello ' + obj1)
+console.log(typeof Counter)
+console.log(Counter.prototype)
+console.log(Counter.prototype.constructor === Counter)
 
-const obj2 = Object.create(obj1)
+// it can be call without new
+// but it is not a good pratcie
+Counter()
 
-const normalObj = Object.create({})
-const nullObj = Object.create(null)
+class CounterClass {
 
-normalObj.name = 'Mateusz'
-nullObj.name = 'Mateusz'
+    constructor(initialNumber = 0) {
+        this.number = initialNumber
+    }
 
-console.log('Hello ' + normalObj)
-console.log('Hello ' + nullObj)
+    inc() {
+        this.number = this.number + 1
+    }
+
+}
+
+CounterClass.prototype.dec = function () {
+    this.number = this.number - 1
+}
+
+const counter2 = new CounterClass(5)
+
+console.log(typeof CounterClass)
+console.log(CounterClass.prototype)
+console.log(CounterClass.prototype.constructor === CounterClass)
+
+// can't call without new!
+try {
+    CounterClass()
+} catch (error) {
+    console.error(error)
+}
